@@ -1,0 +1,7 @@
+#过滤nodejs的模块
+node_modules/
+#过滤所有sass文件
+src/sass/
+#过滤babelrc文件和gitignore文件
+.babelrc
+gulpfile.js

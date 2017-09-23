@@ -1,0 +1,18 @@
+.minCarousel{position:relative;overflow:hidden;float:left;}
+.minCarousel ul{list-style:none;padding:0;margin:0;}
+.minCarousel ul.bigImg{position:absolute;left:0;top:0;}
+.minCarousel ul.fade li{position:absolute;left:0;top:0;}
+.minCarousel ul.left li{float:left;}
+.minCarousel ul.smallBtn{position:absolute;right:0;bottom:20px;transform:translate(-50%,0);}
+.minCarousel ul.smallBtn li{width:12px;height:12px;margin:3px;float:left;border-radius:50%;
+	text-indent:-2em;overflow:hidden;background:#fff;}
+.minCarousel ul.smallBtn li.active{background:#f60;}
+.minCarousel img{display:block;}
+.minCarousel span{position:absolute;top:50%;color:#fff;padding:20px 10px;background:rgba(255,255,0,.5);}
+.minCarousel .prev{left:0;}
+.minCarousel .next{right:0;}
+.smallImgBox{float:right;width:190px;}
+.smallImgBox img{width:190px;height:96px;}
+.smallImgBox ul.smallImg li{float:left;border:1px solid #fff;margin-top:4px;}
+.smallImgBox ul.smallImg li.bor{border:3px solid #f60;}
+.smallImgBox li.bor img{width:184px;height:90px;}
