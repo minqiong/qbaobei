@@ -332,18 +332,38 @@
 
 #main .main_7 .img_ban { height: 697px; width: 100%; }
 
-#main .main_8 h3 { border-bottom: 2px solid #ddd; height: 40px; line-height: 40px; position: relative; border-bottom-color: #fa4e68; }
+#main .main_8 h3, #main .main_9 h3 { border-bottom: 2px solid #ddd; height: 40px; line-height: 40px; position: relative; border-bottom-color: #fa4e68; }
 
-#main .main_8 h3 p { display: inline-block; float: left; font-weight: bold; font-size: 20px; }
+#main .main_8 h3 p, #main .main_9 h3 p { display: inline-block; float: left; font-weight: bold; font-size: 20px; }
 
-#main .main_8 h3 span { float: right; color: #999; }
+#main .main_8 h3 span, #main .main_9 h3 span { float: right; color: #999; }
 
-#main .main_8 h3 ul, #main .main_8 h3 .main_3 .main_con_l ul, #main .main_8 .main_3 h3 .main_con_l ul, #main .main_8 .main_3 .main_con_l h3 ul, #main .main_3 .main_8 h3 .main_con_l ul, #main .main_3 .main_con_l .main_8 h3 ul, #main .main_8 h3 .main_4 .main_con_l ul, #main .main_8 .main_4 h3 .main_con_l ul, #main .main_8 .main_4 .main_con_l h3 ul, #main .main_4 .main_8 h3 .main_con_l ul, #main .main_4 .main_con_l .main_8 h3 ul { height: 28px; position: absolute; left: 100px; top: 0; border-left: 1px solid #ddd; }
+#main .main_8 h3 ul, #main .main_9 h3 ul, #main .main_8 h3 .main_3 .main_con_l ul, #main .main_8 .main_3 h3 .main_con_l ul, #main .main_8 .main_3 .main_con_l h3 ul, #main .main_3 .main_8 h3 .main_con_l ul, #main .main_3 .main_con_l .main_8 h3 ul, #main .main_9 .main_3 h3 .main_con_l ul, #main .main_9 .main_3 .main_con_l h3 ul, #main .main_3 .main_9 h3 .main_con_l ul, #main .main_9 h3 .main_3 .main_con_l ul, #main .main_3 .main_con_l .main_9 h3 ul, #main .main_8 h3 .main_4 .main_con_l ul, #main .main_8 .main_4 h3 .main_con_l ul, #main .main_8 .main_4 .main_con_l h3 ul, #main .main_4 .main_8 h3 .main_con_l ul, #main .main_4 .main_con_l .main_8 h3 ul, #main .main_9 .main_4 h3 .main_con_l ul, #main .main_9 .main_4 .main_con_l h3 ul, #main .main_4 .main_9 h3 .main_con_l ul, #main .main_9 h3 .main_4 .main_con_l ul, #main .main_4 .main_con_l .main_9 h3 ul { height: 28px; position: absolute; left: 100px; top: 0; border-left: 1px solid #ddd; }
 
-#main .main_8 h3 li { float: left; margin: 0 25px; text-align: center; cursor: pointer; width: 70px; font-size: 16px; }
+#main .main_8 h3 li, #main .main_9 h3 li { float: left; margin: 0 25px; text-align: center; cursor: pointer; width: 70px; font-size: 16px; line-height: 28px; }
 
-#main .main_8 h3 li:hover { color: #fa4e68; }
+#main .main_8 h3 li:hover, #main .main_9 h3 li:hover { color: #fa4e68; }
 
-#main .main_8 h3 li.active { color: #fa4e68; }
+#main .main_8 h3 li.active, #main .main_9 h3 li.active { color: #fa4e68; position: relative; }
+
+#main .main_8 h3 li .point, #main .main_9 h3 li .point { position: absolute; bottom: -12px; left: 36%; }
+
+#main .main_8 h3 li .point::after, #main .main_9 h3 li .point::after, #main .main_8 h3 li .point::before, #main .main_9 h3 li .point::before { content: ""; border: 8px solid transparent; border-bottom-color: #fa4e68; position: absolute; bottom: 0; }
+
+#main .main_8 h3 li .point::after, #main .main_9 h3 li .point::after { border-bottom-color: #fff; bottom: -2px; }
+
+#main .main_8 .main_8_tab1 .main_8_tab1_1, #main .main_9 .main_8_tab1 .main_8_tab1_1 { width: 350px; height: 160px; float: left; margin-right: 75px; }
+
+#main .main_8 .main_8_tab1 .main_8_tab1_1 h4, #main .main_9 .main_8_tab1 .main_8_tab1_1 h4 { line-height: 50px; height: 50px; font-size: 16px; border-bottom: 1px dashed #ccc; }
+
+#main .main_8 .main_8_tab1 .main_8_tab1_1 li, #main .main_9 .main_8_tab1 .main_8_tab1_1 li { float: left; width: 70px; height: 30px; line-height: 30px; color: #444; white-space: nowrap; overflow: hidden; margin-right: 17px; }
+
+#main .main_8 .main_8_tab1 .main_8_tab1_1 li:hover, #main .main_9 .main_8_tab1 .main_8_tab1_1 li:hover { color: #fa4e68; }
+
+#main .main_8 .main_8_tab1 .mar_0, #main .main_9 .main_8_tab1 .mar_0 { margin-right: 0; }
+
+#main .main_9 .main_9_tab1 ul { width: 360px; margin-right: 40px; padding: 20px 0; float: left; }
+
+#main .main_9 .main_9_tab1 li { line-height: 30px; height: 30px; }
 
 #gotop { width: 40px; height: 40px; background: #ccc; margin-bottom: 1px; position: fixed; right: 30px; bottom: 150px; z-index: 11; }

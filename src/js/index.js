@@ -73,4 +73,22 @@ require(['jquery','mincar','common'],function($,min){
     	console.log($(this).index());
     	$(this).addClass('active').siblings().removeClass('active');
     });
+    // 百科部分tab标签切换
+    $('.main_8 h3 li').first().addClass('active').find('i').addClass('point');
+    $('.main_8_tab1').eq(0).show().siblings().hide();
+    $('.main_8 h3 li').click(function(){
+    	$('.main_8 h3 li').find('i').removeClass('point');
+    	$(this).addClass('active').siblings().removeClass('active');
+    	$(this).find('i').addClass('point');
+    	$('.main_8_tab1').eq($(this).index()).show().siblings().hide();
+    });
+    // 最新内容部分tab标签切换
+    $('.main_9 h3 li').first().addClass('active').find('i').addClass('point');
+    $('.main_9_tab1').eq(0).show().siblings().hide();
+    $('.main_9 h3 li').click(function(){
+    	$('.main_9 h3 li').find('i').removeClass('point');
+    	$(this).addClass('active').siblings().removeClass('active');
+    	$(this).find('i').addClass('point');
+    	$('.main_9_tab1').eq($(this).index()).show().siblings().hide();
+    });
 });
