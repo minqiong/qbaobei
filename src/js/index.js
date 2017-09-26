@@ -61,9 +61,15 @@ require(['jquery','mincar','common'],function($,min){
     	$('.rb_dl dl').animate({left:3*$dl_width*$dl_index});
     })
     
-    // 排行榜动画
+    // 排行榜动画main_5
     $('.main_5top li').eq(0).addClass('active');
     $('.main_5top li').mouseenter(function(){
+    	console.log($(this).index());
+    	$(this).addClass('active').siblings().removeClass('active');
+    });
+    // main_6
+    $('.main_6top li').eq(0).addClass('active');
+    $('.main_6top li').mouseenter(function(){
     	console.log($(this).index());
     	$(this).addClass('active').siblings().removeClass('active');
     });
