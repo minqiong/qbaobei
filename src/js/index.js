@@ -38,31 +38,28 @@ require(['jquery','mincar','common'],function($,min){
     // 怀孕模块tal标签切换动画
     // 默认给第一个tab li加样式
     // 左边
-    $('.main_1,main_2').each(function(){
-    	console.log(this);
-	    $('.main_con_ll li').first().addClass('active');
-	    $('.main_con_ul').width($('.main_con_tab1').width()*4);
-	    $('.main_con_ll li').click(function(){
-	    	$('.main_con_ll li').eq($(this).index()).addClass('active').siblings().removeClass('active');
-	    	$('.main_con_ul').animate({left:-$(this).index()*$('.main_con_tab1').width()});
-	    });
-	    // 右边
-	    $('.main_con_rt li').first().addClass('active');
-	    $('.main_1_rb_box').width($('.main_1_rb_box ul').width()*2)
-	    $('.main_con_rt li').click(function(){
-	    	$('.main_1_rb_box').animate({left:-$('.main_1_rb_box ul').width()*$(this).index()});
-	    	$('.main_con_rt li').eq($(this).index()).addClass('active').siblings().removeClass('active');
-	    });
-	    // 工具部分动画
-	    // var $dl_len=$('.rb_dl dl dd').length;
-	    var $dl_width=$('.rb_dl dl dd').width();
-	    $('.rb_dl dl').width($dl_width*6);
-	    var $dl_index=0;
-	    $('.rb_dl').on('click','.btn_prev,.btn_next',function(){
-	    	this.className==='btn_prev'?$dl_index++:$dl_index--;
-	    	$('.rb_dl dl').animate({left:3*$dl_width*$dl_index});
-	    });
+
+    $('.main_con_ll li').first().addClass('active');
+    $('.main_con_ul').width($('.main_con_tab1').width()*4);
+    $('.main_con_ll li').click(function(){
+    	$('.main_con_ll li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    	$('.main_con_ul').animate({left:-$(this).index()*$('.main_con_tab1').width()});
     });
+    // 右边
+    $('.main_con_rt li').first().addClass('active');
+    $('.main_1_rb_box').width($('.main_1_rb_box ul').width()*2)
+    $('.main_con_rt li').click(function(){
+    	$('.main_1_rb_box').animate({left:-$('.main_1_rb_box ul').width()*$(this).index()});
+    	$('.main_con_rt li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    });
+    // 工具部分动画
+    var $dl_width=$('.rb_dl dl dd').width();
+    $('.rb_dl dl').width($dl_width*6);
+    var $dl_index=0;
+    $('.rb_dl').on('click','.btn_prev,.btn_next',function(){
+    	this.className==='btn_prev'?$dl_index++:$dl_index--;
+    	$('.rb_dl dl').animate({left:3*$dl_width*$dl_index});
+    })
     
     // 排行榜动画
     $('.main_5top li').eq(0).addClass('active');
