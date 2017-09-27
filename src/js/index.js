@@ -72,9 +72,45 @@ require(['jquery','mincar','common'],function($,min){
     // main_6
     $('.main_6top li').eq(0).addClass('active');
     $('.main_6top li').mouseenter(function(){
-    	console.log($(this).index());
     	$(this).addClass('active').siblings().removeClass('active');
     });
+//------------------------main_7--------------------------
+    // 图库main_7动画
+    // 轮播图片文字上滑
+    $('.ban_part a').mouseenter(function(){
+    	$(this).find('.state').animate({bottom:'10'});
+    }).mouseleave(function(){
+    	$(this).find('.state').animate({bottom:'-30'});
+    });
+    // 轮播图动画
+    $('.ban_part').first().clone().appendTo($('.ban_box'));
+    $('.ban_box').width($('.ban_part').width()*$('.ban_part').length);
+	var _7ul=$('<ul/>').addClass('ban_btn');
+	for(var i=0;i<$('.ban_part').length-1;i++){
+		$('<li/>').html(i).appendTo(_7ul);
+	}
+	_7ul.appendTo($('.main_7_img_ban'));
+    var _7index=0;
+    $('.ban_btn li').first().addClass('active');
+    clearInterval(_7timer);
+    var _7timer=setInterval(function(){
+    	_7index++;
+    	if(_7index>=$('.ban_part').length){
+    		_7index=0;
+    		$('.ban_box').css({left:0});
+    	}
+	    showBan();
+    },3000);
+    $('.ban_btn li').mouseenter(function(){
+    	_7index=$(this).index();
+    	showBan()
+    });
+    function showBan(){
+    	$('.ban_btn li').eq(_7index).addClass('active').siblings().removeClass('active');
+   		$('.ban_box').animate({left:-$('.ban_part').width()*_7index});
+    }
+
+//------------------------main_7-----------------------------------
     // 百科部分tab标签切换
     $('.main_8 h3 li').first().addClass('active').find('i').addClass('point');
     $('.main_8_tab1').eq(0).show().siblings().hide();
@@ -97,11 +133,36 @@ require(['jquery','mincar','common'],function($,min){
     var $9_ban_liWidth=$('.main_9_ban ul li').width();
     clearInterval(_9timer);
     var _9timer=setInterval(function(){
+    	main_9_banNext();
+    },3000);
+    function main_9_banNext(){
 	    $('.main_9_ban ul').animate({left:-$9_ban_liWidth},function(){
 	    	var $cloneLi=$('.main_9_ban ul li').first().clone();
 	    	$('.main_9_ban ul li').first().remove();
 	    	$('.main_9_ban ul').append($cloneLi);
 	    	$('.main_9_ban ul').css({left:0});
 	    });
-    },3000);
+    }
+    function main_9_banPrev(){
+	    var $cloneLi=$('.main_9_ban ul li').last().clone();
+	    $('.main_9_ban ul li').last().remove();
+    	$('.main_9_ban ul').animate({left:$9_ban_liWidth},function(){
+	    	$cloneLi.insertBefore($('.main_9_ban ul li').first());
+	    	$('.main_9_ban ul').css({left:0});
+	    });
+    }
+    $('.main_9_ban').mouseenter(function(){
+    	clearInterval(_9timer);
+    	$('.prev,.next').show();
+	    $('.main_9').on('click','.prev,.next',function(){
+	    	clearInterval(_9timer);
+			main_9_banNext();
+	    	
+	    });
+    }).mouseleave(function(){
+    	_9timer=setInterval(function(){
+	    	main_9_banNext();
+	    },3000);
+    	$('.next,.prev').hide();
+    });
 });

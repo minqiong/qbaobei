@@ -95,7 +95,7 @@
 							carousel.move();
 						});
 					}).mouseleave(function(){
-						$('this span').remove();
+						$('.minCarousel .prev,.minCarousel .next').remove();
 					});
 					// 鼠标悬停是停止动画，松开时继续
 					$this.mouseenter(function(){
