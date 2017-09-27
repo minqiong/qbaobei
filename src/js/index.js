@@ -16,9 +16,11 @@ require(['jquery','mincar','common'],function($,min){
     });
     // 导航条显示与隐藏
    	$('.secondNav').mouseenter(function(){
-   		$(this).addClass('active').find('.thirdNav').css({display:'block'});
+   		$(this).addClass('active').find('.thirdNav').show();
+   		$(this).find('h4 i').addClass('active');
    	}).mouseleave(function(){
-   		$(this).removeClass('active').find('.thirdNav').css({display:'none'});
+   		$(this).removeClass('active').find('.thirdNav').hide();
+   		$(this).find('h4 i').removeClass('active');
    	});
    	// 轮播图展示
    	$('.minCarousel').minCarousel({
@@ -59,7 +61,7 @@ require(['jquery','mincar','common'],function($,min){
     $('.rb_dl').on('click','.btn_prev,.btn_next',function(){
     	this.className==='btn_prev'?$dl_index++:$dl_index--;
     	$('.rb_dl dl').animate({left:3*$dl_width*$dl_index});
-    })
+    });
     
     // 排行榜动画main_5
     $('.main_5top li').eq(0).addClass('active');
@@ -91,4 +93,15 @@ require(['jquery','mincar','common'],function($,min){
     	$(this).find('i').addClass('point');
     	$('.main_9_tab1').eq($(this).index()).show().siblings().hide();
     });
+    // main_9部分动画轮播
+    var $9_ban_liWidth=$('.main_9_ban ul li').width();
+    clearInterval(_9timer);
+    var _9timer=setInterval(function(){
+	    $('.main_9_ban ul').animate({left:-$9_ban_liWidth},function(){
+	    	var $cloneLi=$('.main_9_ban ul li').first().clone();
+	    	$('.main_9_ban ul li').first().remove();
+	    	$('.main_9_ban ul').append($cloneLi);
+	    	$('.main_9_ban ul').css({left:0});
+	    });
+    },3000);
 });
