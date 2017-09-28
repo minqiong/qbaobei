@@ -19,7 +19,7 @@
 
 .icon-xiangji:before { content: "\e64b"; }
 
-.icon-bofang:before { content: "\e60d"; }
+.icon-bofang:before { content: "\e60d"; color:#fff;}
 
 .icon-menuicon:before { content: "\e600"; }
 

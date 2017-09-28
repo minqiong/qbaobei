@@ -1,7 +1,8 @@
 require.config({
 	paths:{
 		jquery:'../lib/jquery-3.2.1.min',
-		mincar:'../lib/jquery-minCarousel/minCarousel'
+		mincar:'../lib/jquery-minCarousel/minCarousel',
+        common:'common'
 	},
 	shim:{
 		common:['jquery'],
@@ -10,6 +11,20 @@ require.config({
 });
 require(['jquery','mincar','common'],function($,min){
 	// **********************************导航栏的动画************************************
+	// 吸顶菜单
+	
+	window.onscroll=function(){
+		if(window.scrollY>=40){
+			$('#minNav').css({
+				position:'fixed',
+				top:0,
+				left:0,
+				zIndex:100
+			});
+		}else{
+			$('#minNav').removeAttr('style');
+		}
+	}
     // 返回顶部按钮
     $('#gotop').click(function(){
         $(window).scrollTop(0);
@@ -93,7 +108,7 @@ require(['jquery','mincar','common'],function($,min){
     var _7index=0;
     $('.ban_btn li').first().addClass('active');
     clearInterval(_7timer);
-    var _7timer=setInterval(function(){
+	var _7timer=setInterval(function(){
     	_7index++;
     	if(_7index>=$('.ban_part').length){
     		_7index=0;
@@ -101,10 +116,23 @@ require(['jquery','mincar','common'],function($,min){
     	}
 	    showBan();
     },3000);
+    // 鼠标放到小按钮后调到相应的页面
     $('.ban_btn li').mouseenter(function(){
     	_7index=$(this).index();
     	showBan()
     });
+   	$('.ban_part').mouseenter(function(){
+   		clearInterval(_7timer);
+   	}).mouseleave(function(){
+   		_7timer=setInterval(function(){
+	    	_7index++;
+	    	if(_7index>=$('.ban_part').length){
+	    		_7index=0;
+	    		$('.ban_box').css({left:0});
+	    	}
+		    showBan();
+	    },3000);
+   	});
     function showBan(){
     	$('.ban_btn li').eq(_7index).addClass('active').siblings().removeClass('active');
    		$('.ban_box').animate({left:-$('.ban_part').width()*_7index});
@@ -151,13 +179,17 @@ require(['jquery','mincar','common'],function($,min){
 	    	$('.main_9_ban ul').css({left:0});
 	    });
     }
-    $('.main_9_ban').mouseenter(function(){
+   	$('.prev,.next').hide();
+    $('.main_9_ban_box').mouseenter(function(){
     	clearInterval(_9timer);
     	$('.prev,.next').show();
-	    $('.main_9').on('click','.prev,.next',function(){
-	    	clearInterval(_9timer);
-			main_9_banNext();
-	    	
+	    $('.prev').click(function(){
+	    	// clearInterval(_9timer);
+			main_9_banPrev();	    	
+	    });
+	    $('.next').click(function(){
+	    	// clearInterval(_9timer);
+			main_9_banNext();	    	
 	    });
     }).mouseleave(function(){
     	_9timer=setInterval(function(){

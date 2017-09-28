@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* 存放全局变量 */
+#minNav { width: 100%; background: #ddd; }
+
+#minNav .fl { line-height: 40px; }
+
+#minNav .fl li { float: left; padding: 0 14px; font-size: 14px; }
+
+#minNav .fl li:first-child { padding-left: 0; }
+
+#minNav .fl li a { color: #666; }
+
+#minNav .fl li a:hover { color: #fa4e68; }
+
+#minNav .fr { line-height: 40px; }
+
+#minNav .fr li { font-size: 15px; float: left; padding: 0 10px; }
+
+#minNav .fr li:first-child { padding-right: 15px; }
+
+#minNav .fr li:first-child a { color: #fa4e68; }
+
+#minNav .fr li a { color: #666; }
+
+#minNav .fr li a:hover { color: #fa4e68; }
+
+#minNav .fr li:last-child { padding-right: 0; }
+
+#minNav .fr li i { margin-right: 5px; font-size: 20px; }
+
+#footer { border-top: 1px solid #ddd; padding: 20px 0; text-align: center; }
+
+#footer .guanyu { margin: 10px auto; }
+
+#footer .guanyu a { display: inline-block; padding: 0 10px; border-right: 1px solid #666; color: #666; line-height: 12px; height: 12px; }
+
+#footer .guanyu a:hover { color: #fa4e68; }
+
+#footer .guanyu a:last-child { border-right: 0 none; }
+
+#footer p { line-height: 20px; }
+
+#footer p a { color: #999; }
