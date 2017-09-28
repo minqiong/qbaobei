@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /* reset 默认样式重置 */
+html,body{width:100%;height:100%;}
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, q, em, ul, li, ol, dl, dt, dd, form, article, aside, embed, table, td, th, input, button, legend, fieldset, blockquote, textarea, label, strong, img, cite,figure,select { margin: 0; padding: 0; outline: none; }
 body { font-family:'Microsoft 微软雅黑'; font-size: 12px; line-height: 1;  margin: 0 auto; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }

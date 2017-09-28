@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* 存放全局变量 */
+html, body { height: 100%; width: 100%; }
+
+#main { width: 100%; height: 100%; background: url("../img/login2.jpg") no-repeat; position: relative; }
+
+#main .login_box { width: 520px; border-radius: 10px; position: absolute; right: 10%; top: 20%; background: #fff; }
+
+#main .login_box ul { border-bottom: 1px solid #ddd; }
+
+#main .login_box ul li { width: 50%; float: left; height: 55px; line-height: 55px; font-size: 18px; text-align: center; }
+
+#main .login_box ul li.active { border-bottom: 2px solid #fa4e68; }
+
+#main .login_box .login_way { padding: 15px 60px 0 60px; font-size: 14px; }
+
+#main .login_box .login_way p { padding: 0 30px; line-height: 40px; height: 40px; margin: 20px 0; }
+
+#main .login_box .login_way p:first-child, #main .login_box .login_way p:nth-child(2) { border-bottom: 1px solid #ccc; }
+
+#main .login_box .login_way input { width: 79%; }
+
+#main .login_box .login_way p:nth-child(3) { font-size: 14px; }
+
+#main .login_box .login_way p:nth-child(3) span { float: right; color: #fa4e68; }
+
+#main .login_box .login_way #count_checkbox, #main .login_box .login_way #phone_checkbox { width: 20px; float: left; margin-top: 14px; }
+
+#main .login_box .login_way p:nth-child(4) { background: #fa4e68; color: #fff; text-align: center; font-size: 18px; }
+
+#main .login_box .login_way p:last-child { text-align: center; font-size: 14px; }
+
+#main .login_box .login_way p:last-child a { color: #ccc; }
+
+#main .login_box .login_way .getCode { float: right; }

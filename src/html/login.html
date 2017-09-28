@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<script type="text/javascript" src="../lib/require.js" data-main="../js/login"></script>
+</head>
+<body>
+	<div id="main">
+		<div class="container">
+			<div class="login_box">
+				<ul class="clearfix">
+					<li>账号密码登录</li>
+					<li>手机短信登录</li>
+				</ul>
+				<div class="login_way">
+					<div class="count_login">
+						<p><input type="text"  id="count_phone" placeholder="手机号码"></p>
+						<p><input type="password" id="count_password" placeholder="密码"></p>
+						<p>
+							<label for="checkbox">
+								<input type="checkbox" id="count_checkbox" checked="checked">
+								<i>七日免登陆</i>
+							</label>
+							<span>忘记密码？</span>
+						</p>
+						<p id="count_btn">登录</p>
+						<p><a href="register.html">立即注册</a></p>
+					</div>
+					<div class="phone_login">
+						<p><input type="text" id="count_phone"  placeholder="手机号码"><span class="getCode">发送验证码</span></p>
+						<p><input type="password" id="phone_password" placeholder="手机验证码"></p>
+						<p>
+							<label for="checkbox">
+								<input type="checkbox" id="phone_checkbox" checked="checked">
+								<i>七日免登陆</i>
+							</label>
+							<span>忘记密码？</span>
+						</p>
+						<p id="phone_btn">登录</p>
+						<p><a href="register.html">立即注册</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

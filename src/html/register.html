@@ -28,7 +28,7 @@
 			<ul class="fr">
 				<li><a href="#"><i class="iconfont icon-fabuwenzhang"></i>发布文章</a></li>
 				<li><a href="#">登录</a></li>
-				<li><a href="#">注册</a></li>
+				<li><a href="login.html">注册</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -49,24 +49,40 @@
 	<div id="main">
 		<div class="container">
 			<div class="form_box">
-				<h2><span>十年修行，只为等你</span><span>已有账号 立即去登录</span></h2>
+				<h2><span>十年修行，只为等你</span><span>已有账号 立即去<a href="login.html">登录</a></span></h2>
 				<form action="#">
 					<p>
 						<label for="phone">登录手机</label>
-						<input type="text" name="" placeholder="请输入您的手机号码" id="phone">
+						<input type="text" placeholder="请输入您的手机号码" id="phone">
+						<i>*</i>
+						<span class="phone_tip"></span>
 					</p>
 					<p>
 						<label for="nickname">昵称</label>
-						<input type="text" name="" placeholder="2-14位，中文、数字或者英文（区分大小写）" id="nickname">
+						<input type="text" placeholder="2-14位，中文" id="nickname">
+						<i>*</i>
+						<span class="name_tip"></span>
 					</p>
 					<p>
 						<label for="password">设置密码</label>
-						<input type="password" name="" placeholder="6-16位，英文（区分大小写）、数字或下划线" id="password">
+						<input type="password" placeholder="6-16位，英文（区分大小写）、数字或下划线" id="password">
+						<i>*</i>
+						<span class="password_tip"></span>
 					</p>
-					<p>
-						<input type="radio" name="choice">
-						<label for="choice">选择状态</label>
+					<p class="radio clearfix">
+						<label>选择状态</label>
+						<span><input type="radio" name="choice">备孕中</span>
+						<span><input type="radio" name="choice">正在孕期</span>
+						<span><input type="radio" name="choice">已有宝宝</span>
+						<i>*</i>
+						<span class="choice_tip"></span>
 					</p>
+					<p class="agreement">
+						<input type="checkbox" id="checkbox" checked>
+						<label>我已同意并阅读</label>
+						<i>《亲亲宝贝网服务协议》</i>
+					</p>
+					<p class="btn"><button id="btn">注册</button></p>
 				</form>
 			</div>
 		</div>
@@ -93,5 +109,11 @@
 		    </p>
 		</div>
 	</div>	
+	<div id="shade">
+		<div class="goto_login">
+			<span>&times;</span>
+			<p>恭喜你注册成功，赶紧去<a href="login.html">登录</a>吧</p>
+		</div>
+	</div>
 </body>
 </html>

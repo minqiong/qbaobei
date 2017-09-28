@@ -107,9 +107,9 @@ define(['jquery'],function($){
 		headAndFoot:function (){
 			// 生成头部导航栏和尾部
 			return 666;
-			$('#minNav').load('../html/headAndFoot.html #minNav');
+			$('#minNav').load('../html/headAndFoot.html #minNav .container');
 		    // $('#nav').load('../html/headAndFoot.html #nav .container');
-		    $('#footer').load('../html/headAndFoot.html #footer');
+		    $('#footer').load('../html/headAndFoot.html #footer .container');
 		    $('.gotop').load('../html/headAndFoot.html #gotop');
 		},
 	
