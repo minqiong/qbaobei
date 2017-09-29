@@ -26,7 +26,7 @@ html, body { height: 100%; width: 100%; }
 
 #main .login_box .login_way #count_checkbox, #main .login_box .login_way #phone_checkbox { width: 20px; float: left; margin-top: 14px; }
 
-#main .login_box .login_way p:nth-child(4) { background: #fa4e68; color: #fff; text-align: center; font-size: 18px; }
+#main .login_box .login_way p#count_btn { background: #fa4e68; text-align: center; font-size: 18px; color: #fff; cursor: pointer; }
 
 #main .login_box .login_way p:last-child { text-align: center; font-size: 14px; }
 

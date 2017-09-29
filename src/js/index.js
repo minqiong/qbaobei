@@ -10,10 +10,66 @@ require.config({
 	}
 });
 require(['jquery','mincar','common'],function($,min){
-	// **********************************导航栏的动画************************************
+    // console.log(666);
+
+
+    // 7天免登录
+    // 进入页面判断是否有cookie或者路径有传递参数
+    var cookies = document.cookie;
+    var url=location.search;
+    if(cookies.length>0){
+        cookies = cookies.split('; ');
+        cookies.forEach(function(cookies){
+            var temp = cookies.split('=');
+            if(temp[0] === 'phone'){
+                console.log(temp[1]);
+                changeStatus(temp[1]);
+            }
+        });
+    }else if(url!==''){
+        // url解码
+        url=decodeURI(url);   
+        url=url.slice(1).split('=');
+        // url=url;
+        $('.userLogin').html(url[1]+' <span class="exit">退出</span>');
+        // console.log(url[1]);
+    }
+    $('.exit').click(function(){
+        changeStatus();
+    });
+
+    function changeStatus(phone){
+        // console.log(phone);
+        // @登录
+        // 显示登录信息
+        // 隐藏登录框
+        if(phone){
+            $('.userLogin').html(phone+' <span class="exit">退出</span>');
+        }
+
+        // @退出
+        // 显示表单
+        // 隐藏登录信息
+        // 清除cookie
+        else{
+            $('.userLogin').html('登录');
+            
+            // 利用设置过期时间达到删除的效果。
+            var date = new Date();
+            date.setDate(date.getDate()-7);
+            document.cookie = 'phone=xx;expires=' + date.toString();
+            document.cookie = 'password=xx;expires=' + date.toString();
+        }
+
+        
+    }
+
+
+
 	// 吸顶菜单
-	
 	window.onscroll=function(){
+        // window.scrollY>=600?$('#gotop').show():$('#gotop').hide();
+        
 		if(window.scrollY>=40){
 			$('#minNav').css({
 				position:'fixed',

@@ -5,3 +5,4 @@ src/sass/
 #过滤babelrc文件和gitignore文件
 .babelrc
 gulpfile.js
+.sql
