@@ -60,10 +60,7 @@ require(['jquery','mincar','common'],function($,min){
             document.cookie = 'phone=xx;expires=' + date.toString();
             document.cookie = 'password=xx;expires=' + date.toString();
         }
-
-        
     }
-
 
 
 	// 吸顶菜单
@@ -112,18 +109,19 @@ require(['jquery','mincar','common'],function($,min){
     // 默认给第一个tab li加样式
     // 左边
 
-    $('.main_con_ll li').first().addClass('active');
-    $('.main_con_ul').width($('.main_con_tab1').width()*4);
-    $('.main_con_ll li').click(function(){
-    	$('.main_con_ll li').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    	$('.main_con_ul').animate({left:-$(this).index()*$('.main_con_tab1').width()});
+    $('.main_1_ll li').first().addClass('active');
+    console.log(666);
+    $('.main_1_ul').width($('.main_1_tab1').width()*4);
+    $('.main_1_ll li').click(function(){
+    	$('.main_1_ll li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    	$('.main_1_ul').animate({left:-$(this).index()*$('.main_1_tab1').width()});
     });
     // 右边
-    $('.main_con_rt li').first().addClass('active');
+    $('.main_1_rt li').first().addClass('active');
     $('.main_1_rb_box').width($('.main_1_rb_box ul').width()*2)
-    $('.main_con_rt li').click(function(){
+    $('.main_1_rt li').click(function(){
     	$('.main_1_rb_box').animate({left:-$('.main_1_rb_box ul').width()*$(this).index()});
-    	$('.main_con_rt li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+    	$('.main_1_rt li').eq($(this).index()).addClass('active').siblings().removeClass('active');
     });
     // 工具部分动画
     var $dl_width=$('.rb_dl dl dd').width();
@@ -196,19 +194,19 @@ require(['jquery','mincar','common'],function($,min){
 
 //------------------------main_7-----------------------------------
     // 百科部分tab标签切换
-    $('.main_8 h3 li').first().addClass('active').find('i').addClass('point');
+    $('.main_8 h2 li').first().addClass('active').find('i').addClass('point');
     $('.main_8_tab1').eq(0).show().siblings().hide();
-    $('.main_8 h3 li').click(function(){
-    	$('.main_8 h3 li').find('i').removeClass('point');
+    $('.main_8 h2 li').click(function(){
+    	$('.main_8 h2 li').find('i').removeClass('point');
     	$(this).addClass('active').siblings().removeClass('active');
     	$(this).find('i').addClass('point');
     	$('.main_8_tab1').eq($(this).index()).show().siblings().hide();
     });
     // 最新内容部分tab标签切换
-    $('.main_9 h3 li').first().addClass('active').find('i').addClass('point');
+    $('.main_9 h2 li').first().addClass('active').find('i').addClass('point');
     $('.main_9_tab1').eq(0).show().siblings().hide();
-    $('.main_9 h3 li').click(function(){
-    	$('.main_9 h3 li').find('i').removeClass('point');
+    $('.main_9 h2 li').click(function(){
+    	$('.main_9 h2 li').find('i').removeClass('point');
     	$(this).addClass('active').siblings().removeClass('active');
     	$(this).find('i').addClass('point');
     	$('.main_9_tab1').eq($(this).index()).show().siblings().hide();
