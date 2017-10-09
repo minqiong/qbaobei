@@ -113,10 +113,14 @@
 					}
 					// 无缝滚动时设置index值
 					if(opt.seamless===true&&opt.index>=$len||opt.index<=0){
-						opt.index=1;
+						opt.index=0;
 						$('.bigImg').css({left:0,top:0});
 					}
-
+					// 当跳到最后一个时给第一个小图和按钮加样式
+					if(opt.seamless===true&&opt.index>=$len-1){
+						$('.smallBtn li').first().addClass('active').siblings().removeClass('active');
+						$('.smallImg li').first().addClass('bor').siblings().removeClass('bor');
+					}
 					// 判断动画类型
 					if(opt.type==='vertical'){
 						$('.bigImg').animate({top:-opt.index*opt.height});

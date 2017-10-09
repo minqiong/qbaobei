@@ -9,10 +9,7 @@ require.config({
 		mincar:['jquery']
 	}
 });
-require(['jquery','mincar','common'],function($,min){
-    // console.log(666);
-
-
+require(['jquery','mincar','common'],function($,min,com){
     // 7天免登录
     // 进入页面判断是否有cookie或者路径有传递参数
     var cookies = document.cookie;
@@ -22,7 +19,6 @@ require(['jquery','mincar','common'],function($,min){
         cookies.forEach(function(cookies){
             var temp = cookies.split('=');
             if(temp[0] === 'phone'){
-                console.log(temp[1]);
                 changeStatus(temp[1]);
             }
         });
@@ -105,37 +101,38 @@ require(['jquery','mincar','common'],function($,min){
     }).mouseleave(function(){
     	$(this).animate({width:13}).removeAttr('style').find('a').css({color:'#ffebeb'});
     });
-    // 怀孕模块tal标签切换动画
-    // 默认给第一个tab li加样式
-    // 左边
 
-    $('.main_1_ll li').first().addClass('active');
-    console.log(666);
-    $('.main_1_ul').width($('.main_1_tab1').width()*4);
-    $('.main_1_ll li').click(function(){
-    	$('.main_1_ll li').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    	$('.main_1_ul').animate({left:-$(this).index()*$('.main_1_tab1').width()});
-    });
-    // 右边
-    $('.main_1_rt li').first().addClass('active');
-    $('.main_1_rb_box').width($('.main_1_rb_box ul').width()*2)
-    $('.main_1_rt li').click(function(){
-    	$('.main_1_rb_box').animate({left:-$('.main_1_rb_box ul').width()*$(this).index()});
-    	$('.main_1_rt li').eq($(this).index()).addClass('active').siblings().removeClass('active');
-    });
-    // 工具部分动画
-    var $dl_width=$('.rb_dl dl dd').width();
-    $('.rb_dl dl').width($dl_width*6);
-    var $dl_index=0;
-    $('.rb_dl').on('click','.btn_prev,.btn_next',function(){
-    	this.className==='btn_prev'?$dl_index++:$dl_index--;
-    	$('.rb_dl dl').animate({left:3*$dl_width*$dl_index});
+
+    $('.main_1').each(function(){
+        // 怀孕模块tal标签切换动画
+        // 默认给第一个tab li加样式
+        // 左边
+        $(this).find('.main_1_ll li').first().addClass('active');
+        $('.main_1_ul').width($('.main_1_tab1').width()*4);
+        // 事件委托
+        $(this).on('click','.main_1_ll li,.main_1_rt li,.btn_prev,.btn_next',function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            $(this).parent().next().find('.main_1_ul').animate({left:-$(this).index()*$('.main_1_tab1').width()});
+        
+            $(this).parent().next().find('.main_1_rb_box').animate({left:-$('.main_1_rb_box ul').width()*$(this).index()});
+        });
+        // 右边
+        $('.main_1_rt li').first().addClass('active');
+        $('.main_1_rb_box').width($('.main_1_rb_box ul').width()*2)
+        
+        // 工具部分动画
+        var $dl_width=$('.rb_dl dl dd').width();
+        $('.rb_dl dl').width($dl_width*6);
+        var $dl_index=0;
+        $(this).on('click','.btn_prev,.btn_next',function(){
+        	this.className==='btn_prev active'?$dl_index++:$dl_index--;
+        	$(this).parent().find('dl').animate({left:3*$dl_width*$dl_index});
+        });
     });
     
     // 排行榜动画main_5
     $('.main_5top li').eq(0).addClass('active');
     $('.main_5top li').mouseenter(function(){
-    	console.log($(this).index());
     	$(this).addClass('active').siblings().removeClass('active');
     });
     // main_6
@@ -154,20 +151,28 @@ require(['jquery','mincar','common'],function($,min){
     // 轮播图动画
     $('.ban_part').first().clone().appendTo($('.ban_box'));
     $('.ban_box').width($('.ban_part').width()*$('.ban_part').length);
-	var _7ul=$('<ul/>').addClass('ban_btn');
-	for(var i=0;i<$('.ban_part').length-1;i++){
-		$('<li/>').html(i).appendTo(_7ul);
-	}
-	_7ul.appendTo($('.main_7_img_ban'));
+    // console.log(666);
+    // 生成动画小圆点
+    var _7ul=$('<ul/>').addClass('ban_btn');
+    for(var i=0;i<$('.ban_part').length-1;i++){
+        $('<li/>').html(i).appendTo(_7ul);
+    }
+
+    _7ul.appendTo($('.main_7_img_ban'));
     var _7index=0;
+    // 默认第一个li加样式
     $('.ban_btn li').first().addClass('active');
     clearInterval(_7timer);
-	var _7timer=setInterval(function(){
+    var _7timer=setInterval(function(){
+        console.log(666);
     	_7index++;
     	if(_7index>=$('.ban_part').length){
     		_7index=0;
     		$('.ban_box').css({left:0});
     	}
+        if(_7index>=$('.ban_part').length-1){
+            $('.ban_btn li').first().addClass('active').siblings().removeClass('active');
+        }
 	    showBan();
     },3000);
     // 鼠标放到小按钮后调到相应的页面
@@ -175,8 +180,9 @@ require(['jquery','mincar','common'],function($,min){
     	_7index=$(this).index();
     	showBan()
     });
+    clearInterval(_7timer);
    	$('.ban_part').mouseenter(function(){
-   		clearInterval(_7timer);
+   	    clearInterval(_7timer);
    	}).mouseleave(function(){
    		_7timer=setInterval(function(){
 	    	_7index++;
@@ -184,6 +190,9 @@ require(['jquery','mincar','common'],function($,min){
 	    		_7index=0;
 	    		$('.ban_box').css({left:0});
 	    	}
+            if(_7index>=$('.ban_part').length-1){
+                $('.ban_btn li').first().addClass('active').siblings().removeClass('active');
+            }
 		    showBan();
 	    },3000);
    	});
@@ -192,7 +201,7 @@ require(['jquery','mincar','common'],function($,min){
    		$('.ban_box').animate({left:-$('.ban_part').width()*_7index});
     }
 
-//------------------------main_7-----------------------------------
+//------------------------main_8-----------------------------------
     // 百科部分tab标签切换
     $('.main_8 h2 li').first().addClass('active').find('i').addClass('point');
     $('.main_8_tab1').eq(0).show().siblings().hide();
@@ -210,6 +219,59 @@ require(['jquery','mincar','common'],function($,min){
     	$(this).addClass('active').siblings().removeClass('active');
     	$(this).find('i').addClass('point');
     	$('.main_9_tab1').eq($(this).index()).show().siblings().hide();
+    });
+
+/*---------------------main9部分-------------------------------*/
+    // 请求数据
+    $.ajax({
+        url:'../api/index.php',
+        success:function(data){
+            var arr=JSON.parse(data);
+            $.each(arr,function(idx,item){
+                switch(item.title){
+                    case '不孕不育':
+                    case '生男生女':
+                    case '孕前饮食':
+                        $('<p><span>【'+this.title+'】</span>'+this.content+'<span>'+
+                            this.answer+'个回答</span></p>').appendTo('.question_yun');
+                        break;
+                    case '婴儿健康':
+                    case '婴儿营养':
+                        $('<p><span>【'+this.title+'】</span>'+this.content+'<span>'+
+                            this.answer+'个回答</span></p>').appendTo('.que_xin');
+                        break;
+                    case '家庭教育':
+                        $('<p><span>【'+this.title+'】</span>'+this.content+'<span>'+
+                            this.answer+'个回答</span></p>').appendTo('.que_jia');
+                        break;
+                    case '产后饮食':
+                        $('<p><span>【'+this.title+'】</span>'+this.content+'<span>'+
+                            this.answer+'个回答</span></p>').appendTo('.que_chan');
+                        break;
+                    case '怀孕':
+                        $('<li><span>['+this.title+']</span><p>'+this.content+'</p><span>'+
+                            this.settime+'</span></li>').appendTo('.huaiyun');
+                        break;
+                    case '育儿':
+                        $('<li><span>['+this.title+']</span><p>'+this.content+'</p><span>'+
+                            this.settime+'</span></li>').appendTo('.yuer');
+                        break;
+                    case '早教':
+                        $('<li><span>['+this.title+']</span><p>'+this.content+'</p><span>'+
+                            this.settime+'</span></li>').appendTo('.zaojiao');
+                        break;
+
+                }
+            });
+        }
+    })
+
+    // 点击跳转到详情页
+    // console.log($('.main_1_tab1r').find('a'));
+    $('.main_1 .title').click(function(e){
+        // console.log($(this).text());
+        var params=encodeURI($(this).text());
+        location.href='../html/newsList.html?params='+params;
     });
     // main_9部分动画轮播
     var $9_ban_liWidth=$('.main_9_ban ul li').width();
@@ -234,6 +296,7 @@ require(['jquery','mincar','common'],function($,min){
 	    });
     }
    	$('.prev,.next').hide();
+    clearInterval(_9timer);
     $('.main_9_ban_box').mouseenter(function(){
     	clearInterval(_9timer);
     	$('.prev,.next').show();

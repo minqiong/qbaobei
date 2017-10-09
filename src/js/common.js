@@ -1,34 +1,6 @@
 define(['jquery'],function($){
 	return {
-		/**
-		 * [获取随机验证码]
-		 * @param  {[Number]} num [验证码位数]
-		 * @return {String}     [验证码]
-		 */
-		yanzhengma:function (num){
-			if(num === undefined){
-				num = 4;
-			}
-			var arr = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
-
-			// 循环获取验证码
-			var res = '';
-			for(var i=0;i<num;i++){
-				var idx = parseInt(Math.random()*arr.length);
-				res += arr[idx];
-			}
-			return res;
-		},
-		/**
-		 * [生成一个随机整数]
-		 * @param  {Number} min [最小值]
-		 * @param  {Number} max [最大值]
-		 * @return {Number}     [返回一个min~max之间的随机整数]
-		 */
-		randomNumber:function(min,max){
-			var res = parseInt(Math.random()*(max-min+1)) + min;
-			return res
-		},
+		
 		/**
 		 * [获取随机颜色]
 		 * @return {String} [颜色16进制]
@@ -106,7 +78,7 @@ define(['jquery'],function($){
 
 		headAndFoot:function (){
 			// 生成头部导航栏和尾部
-			return 666;
+			console.log(666);
 			$('#minNav').load('../html/headAndFoot.html #minNav .container');
 		    // $('#nav').load('../html/headAndFoot.html #nav .container');
 		    $('#footer').load('../html/headAndFoot.html #footer .container');
